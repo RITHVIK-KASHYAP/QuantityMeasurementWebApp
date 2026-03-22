@@ -1,0 +1,104 @@
+/* BASE */
+body {
+    background: #f3f4f7;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(to right, #4f6df5, #6c8dfc);
+}
+
+/* SECTION TITLE */
+.section-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+/* SHARED TRANSITION */
+.type-card,
+.action-btn,
+.op-btn,
+.input-box {
+    transition: all 0.25s ease;
+}
+
+/* ========================= */
+/* TYPE CARD */
+/* ========================= */
+.type-card {
+    background: #f8f9fb;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.type-card.active {
+    border: 2px solid #20c997;
+    background: #eefcf7;
+}
+
+/* ========================= */
+/* ACTION BUTTON */
+/* ========================= */
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #e5e7eb;
+}
+
+.action-btn:hover {
+    background: #d1d5db;
+}
+
+.action-btn.active {
+    background: linear-gradient(to right, #4f6df5, #6c8dfc);
+    color: white;
+}
+
+/* ========================= */
+/* OPERATORS */
+/* ========================= */
+.op-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #e5e7eb;
+}
+
+.op-btn.active {
+    background: #f59e0b;
+    color: white;
+}
+
+/* ========================= */
+/* INPUT */
+/* ========================= */
+.input-box {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.input-box:hover {
+    border-color: #4f6df5;
+}
+
+/* INPUT STYLE */
+input {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* RESULT */
+#result-value {
+    font-weight: bold;
+}

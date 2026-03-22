@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Measurement</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header text-center text-white py-4">
+    <h2 class="fw-bold">Welcome To Quantity Measurement</h2>
+</div>
+
+<div class="container mt-5">
+
+    <!-- TYPE -->
+    <h6 class="section-title">CHOOSE TYPE</h6>
+
+    <div id="type-selector" class="row g-4 justify-content-center mt-2">
+
+        <div class="col-md-3">
+            <div class="type-card text-center p-4" data-type="Length">
+                <div class="icon">📏</div>
+                <p>Length</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="type-card text-center p-4" data-type="Weight">
+                <div class="icon">⚖️</div>
+                <p>Weight</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="type-card text-center p-4" data-type="Temperature">
+                <div class="icon">🌡️</div>
+                <p>Temperature</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="type-card text-center p-4" data-type="Volume">
+                <div class="icon">🧪</div>
+                <p>Volume</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ACTION -->
+    <h6 class="section-title mt-5">CHOOSE ACTION</h6>
+
+    <div id="action-selector" class="d-flex gap-3 mt-3">
+        <button class="action-btn" data-action="Comparison">Comparison</button>
+        <button class="action-btn" data-action="Conversion">Conversion</button>
+        <button class="action-btn" data-action="Arithmetic">Arithmetic</button>
+    </div>
+
+    <!-- INPUT -->
+    <div class="row mt-5">
+
+        <!-- FROM -->
+        <div class="col-md-6">
+            <label class="fw-bold mb-2">FROM</label>
+
+            <div class="input-box p-3">
+                <input id="from-value" type="number" class="form-control form-control-lg border-0 shadow-none" placeholder="Enter value">
+
+                <select id="from-unit" class="form-select mt-3"></select>
+            </div>
+        </div>
+
+        <!-- TO -->
+        <div class="col-md-6">
+            <label class="fw-bold mb-2">TO</label>
+
+            <div class="input-box p-3">
+                <input id="to-value" type="number" class="form-control form-control-lg border-0 shadow-none" placeholder="Enter value">
+
+                <select id="to-unit" class="form-select mt-3"></select>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- OPERATORS -->
+    <div id="operator-selector" class="d-flex gap-2 mt-4 justify-content-center" style="display:none;">
+        <button class="op-btn" data-op="+">+</button>
+        <button class="op-btn" data-op="-">−</button>
+        <button class="op-btn" data-op="*">×</button>
+        <button class="op-btn" data-op="/">÷</button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="text-center mt-4">
+        <h2 id="result-value">0</h2>
+        <small id="result-unit"></small>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="mt-5">
+        <h5>History</h5>
+        <ul id="history-list"></ul>
+    </div>
+
+</div>
+
+<!-- ✅ ADD HERE -->
+<script src="js/conversion.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
