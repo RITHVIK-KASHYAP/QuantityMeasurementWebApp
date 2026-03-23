@@ -4,6 +4,9 @@ import { populateDropdown } from "./ui.js";
 const state = {
     type: "Length"
 };
+document.querySelector("#from-value").addEventListener("input", calculate);
+document.querySelector("#from-unit").addEventListener("change", calculate);
+document.querySelector("#to-unit").addEventListener("change", calculate);
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -43,3 +46,57 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 });
+import { getConversion } from "./api.js";
+import { applyConversion } from "./conversion.js";
+import { showResult } from "./ui.js";
+
+async function calculate() {
+    try {
+        const fromVal = parseFloat(document.querySelector("#from-value").value);
+        const fromUnit = document.querySelector("#from-unit").value;
+        const toUnit = document.querySelector("#to-unit").value;
+
+        if (!fromVal || !fromUnit || !toUnit) return;
+
+        const conv = await getConversion(fromUnit, toUnit);
+
+        const res = applyConversion(fromVal, conv);
+
+        showResult(res, toUnit);
+
+    } catch (e) {
+        showResult("Error: " + e.message, "");
+    }
+}
+
+import { saveHistory, getHistory } from "./api.js";
+import { renderHistory } from "./ui.js";
+
+async function calculate() {
+    try {
+        const fromVal = parseFloat(document.querySelector("#from-value").value);
+        const fromUnit = document.querySelector("#from-unit").value;
+        const toUnit = document.querySelector("#to-unit").value;
+
+        if (!fromVal || !fromUnit || !toUnit) return;
+
+        const conv = await getConversion(fromUnit, toUnit);
+        const res = applyConversion(fromVal, conv);
+
+        showResult(res, toUnit);
+
+        const record = {
+            type: state.type,
+            action: "Conversion",
+            expression: `${fromVal} ${fromUnit} → ${toUnit}`,
+            result: res,
+            timestamp: new Date().toISOString()
+        };
+
+        await saveHistory(record);
+        renderHistory(await getHistory());
+
+    } catch (e) {
+        showResult("Error: " + e.message, "");
+    }
+}
