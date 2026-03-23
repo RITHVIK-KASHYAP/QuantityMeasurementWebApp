@@ -33,3 +33,18 @@ export function showResult(value, unit) {
     valEl.textContent = value;
     unitEl.textContent = unit || "";
 }
+export function renderHistory(records) {
+    const list = document.querySelector("#history-list");
+    list.innerHTML = "";
+
+    if (!records.length) {
+        list.innerHTML = "<li>No history yet.</li>";
+        return;
+    }
+
+    records.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = `${r.expression} = ${r.result}`;
+        list.appendChild(li);
+    });
+}
