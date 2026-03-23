@@ -16,3 +16,11 @@ export function populateDropdown(selectEl, units) {
         selectEl.appendChild(opt);
     });
 }
+export function setActive(parentEl, clickedEl, selector) {
+    if (!parentEl) return;
+
+    parentEl.querySelectorAll(selector)
+        .forEach(el => el.classList.remove("active"));
+
+    clickedEl.classList.add("active");
+}
