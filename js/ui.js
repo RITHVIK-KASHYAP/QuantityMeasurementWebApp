@@ -24,3 +24,12 @@ export function setActive(parentEl, clickedEl, selector) {
 
     clickedEl.classList.add("active");
 }
+export function showResult(value, unit) {
+    const valEl = document.querySelector("#result-value");
+    const unitEl = document.querySelector("#result-unit");
+
+    if (!valEl || !unitEl) return;
+
+    valEl.textContent = value;
+    unitEl.textContent = unit || "";
+}
